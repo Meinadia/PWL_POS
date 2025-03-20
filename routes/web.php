@@ -1,16 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+use App\Http\Controllers\LevelController;
+use Illuminate\Support\Facades\Route;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
-class LevelController extends Controller
-{
-    public function index()
-    {
-        $row = DB::insert('update m_level set level_nama = ? where level_kode = ?', ['Customer', 'CUS']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
-        return 'Update data berhasil. Jumlah data yang di update: ' . $row . ' baris';
-    }
-}
+Route::get('/level', [LevelController::class, 'index']);
