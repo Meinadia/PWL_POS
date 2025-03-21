@@ -6,6 +6,7 @@
 <body>
     <h1>Form Tambah Data User</h1>
     <form method="post" action="/user/tambah_simpan">
+        
         {{ csrf_field() }}
 
         <label>Username</label>
@@ -27,4 +28,5 @@
         <input type="submit" class="btn btn-success" value="Simpan">
     </form>
 </body>
+
 </html>

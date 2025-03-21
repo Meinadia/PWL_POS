@@ -14,7 +14,7 @@ class PenjualanDetailSeeder extends Seeder
             for ($j = 1; $j <= 3; $j++) { // 3 barang per transaksi
                 $barang_id = rand(1, 10);
                 $barang = DB::table('m_barang')->where('barang_id', $barang_id)->first();
-
+                
                 $data[] = [
                     'penjualan_id' => $i,
                     'barang_id' => $barang_id,

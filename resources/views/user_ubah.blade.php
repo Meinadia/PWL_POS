@@ -7,10 +7,9 @@
     <h1>Form Ubah Data User</h1>
     <a href="/user">Kembali</a>
     <br><br>
-
     <form method="post" action="/user/ubah_simpan/{{ $data->user_id }}">
         {{ csrf_field() }}
-        {{ method_field("PUT") }}
+        {{ method_field('PUT') }}
 
         <label>Username</label>
         <input type="text" name="username" placeholder="Masukan Username" value="{{ $data->username }}">
