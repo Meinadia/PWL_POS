@@ -111,6 +111,31 @@ Route::group(['prefix' => 'kategori'], function () {
     Route::delete('/{id}', [KategoriController::class, 'destroy']); // menghapus data kategori
 });
 
+//route CRUD supplier
+Route::group(['prefix' => 'supplier'], function () {
+    Route::get('/', [SupplierController::class, 'index']);
+    Route::post('/list', [SupplierController::class, 'list']);
+    Route::get('/create', [SupplierController::class, 'create']);
+    Route::post('/', [SupplierController::class, 'store']);
+
+// Create dengan ajax
+    Route::get('/create_ajax', [SupplierController::class, 'create_ajax']);
+    Route::post('/ajax', [SupplierController::class, 'store_ajax']);
+
+    Route::get('/{id}', [SupplierController::class, 'show']);
+    Route::get('/{id}/edit', [SupplierController::class, 'edit']);
+    Route::put('/{id}', [SupplierController::class, 'update']);
+
+// Edit dengan ajax
+  Route::get('/{id}/edit_ajax', [SupplierController::class, 'edit_ajax']);
+  Route::put('/{id}/update_ajax', [SupplierController::class, 'update_ajax']);
+
+// Delete dengan ajax
+    Route::get('/{id}/delete_ajax', [SupplierController::class, 'confirm_ajax']);
+    Route::delete('/{id}/delete_ajax', [SupplierController::class, 'delete_ajax']);
+    Route::delete('/{id}', [SupplierController::class, 'destroy']);
+});
+
 Route::group(['prefix' => 'barang'], function () {
     Route::get('/', [BarangController::class, 'index']);
     Route::post('/list', [BarangController::class, 'list']);
@@ -120,15 +145,4 @@ Route::group(['prefix' => 'barang'], function () {
     Route::get('/{id}/edit', [BarangController::class, 'edit']);
     Route::put('/{id}', [BarangController::class, 'update']);
     Route::delete('/{id}', [BarangController::class, 'destroy']);
-});
-
-Route::group(['prefix' => 'supplier'], function () {
-    Route::get('/', [SupplierController::class, 'index']);
-    Route::post('/list', [SupplierController::class, 'list']);
-    Route::get('/create', [SupplierController::class, 'create']);
-    Route::post('/', [SupplierController::class, 'store']);
-    Route::get('/{id}', [SupplierController::class, 'show']);
-    Route::get('/{id}/edit', [SupplierController::class, 'edit']);
-    Route::put('/{id}', [SupplierController::class, 'update']);
-    Route::delete('/{id}', [SupplierController::class, 'destroy']);
 });
