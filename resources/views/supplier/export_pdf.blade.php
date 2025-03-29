@@ -115,10 +115,5 @@
         </tbody>
     </table>
 
-    <!-- Footer -->
-    <div style="margin-top: 20px; text-align: right; font-size: 10pt;">
-        Dicetak pada: {{ date('d/m/Y H:i:s') }}
-    </div>
-
 </body>
 </html>
