@@ -9,6 +9,7 @@ use App\Http\Controllers\LevelController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\AuthController;
 use App\Models\SupplierModel;
+use App\Http\Controllers\TransaksiPenjualanController;
 use Illuminate\Support\Facades\Route;
 
 Route::pattern('id', '[0-9]+'); // Pastikan parameter {id} hanya berupa angka
@@ -23,6 +24,8 @@ Route::post('/register', [AuthController::class, 'postRegister']);
 
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+Route::get('/transaksi-penjualan', [TransaksiPenjualanController::class, 'index'])->name('transaksi-penjualan.index');
 
 // Semua rute di bawah ini hanya bisa diakses jika sudah login
 Route::middleware(['auth'])->group(function () {
